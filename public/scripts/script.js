@@ -1,45 +1,41 @@
 
 document.addEventListener('DOMContentLoaded', function() {
   const form = document.getElementById('pdp-add-to-cart-form');
-  const variantIdInput = document.getElementById('pdp-variant-id');
   const variantButtons = document.querySelectorAll('.pdp-option-button');
   const priceElement = document.getElementById('pdp-current-price');
-  const comparePriceElement = document.getElementById('pdp-compare-price');
   const mainImage = document.getElementById('pdp-main-image');
   const thumbnails = document.querySelectorAll('.pdp-thumbnail');
   const arrowLeft = document.querySelector('.pdp-arrow-left');
   const arrowRight = document.querySelector('.pdp-arrow-right');
   const descriptionToggle = document.getElementById('pdp-description-toggle');
   const descriptionContent = document.getElementById('pdp-description');
-
+  const addToCartButton = document.getElementById('pdp-add-to-cart-button');
 
   let currentImageIndex = 0;
   const totalImages = thumbnails.length;
 
   variantButtons.forEach(button => {
-      button.addEventListener('click', () => handleVariantSelection(button));
-    });
+    button.addEventListener('click', () => handleVariantSelection(button));
+  });
   
-    function handleVariantSelection(clickedButton) {
-      variantButtons.forEach(button => button.classList.remove('selected'));
-      clickedButton.classList.add('selected');
-  
-      const price = clickedButton.dataset.variantPrice;
-      priceElement.textContent = `$${price}`;
-  
-      skuElement.textContent = clickedButton.dataset.variantSku;
-  
-      document.getElementById('pdp-variant-id').value = clickedButton.dataset.variantId;
-    }
+  const handleVariantSelection = (clickedButton) => {
+    variantButtons.forEach(button => button.classList.remove('selected'));
+    clickedButton.classList.add('selected');
 
-    // Add to Cart
+    const price = clickedButton.dataset.variantPrice;
+    priceElement.textContent = `$${price}`;
+
+    document.getElementById('pdp-variant-id').value = clickedButton.dataset.variantId;
+    
+    addToCartButton.disabled = false;
+  }
+
   if (form) {
     form.addEventListener('submit', function(e) {
       e.preventDefault();
 
       const formData = new FormData(this);
       const data = Object.fromEntries(formData);
-
       fetch('/cart/add.js', {
         method: 'POST',
         headers: {
@@ -49,6 +45,7 @@ document.addEventListener('DOMContentLoaded', function() {
       })
       .then(response => response.json())
       .then(result => {
+        console.error('Result:', result);
         const messageElement = document.getElementById('pdp-add-to-cart-message');
         messageElement.textContent = 'Product added to cart successfully!';
         messageElement.classList.add('success');
@@ -68,8 +65,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 
-  // Image gallery functionality
-  function showImage(index) {
+  const showImage = (index) => {
     if (index < 0) index = totalImages - 1;
     if (index >= totalImages) index = 0;
     mainImage.src = thumbnails[index].dataset.fullImgUrl;
