@@ -1,0 +1,219 @@
+.pdp-container {
+    display: flex;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  .pdp-image-gallery {
+    flex: 1;
+    margin-right: 40px;
+  }
+  .pdp-main-image {
+    position: relative;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+  }
+  .pdp-main-image img {
+    width: 100%;
+    height: auto;
+  }
+  .pdp-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+  }
+  .pdp-arrow-left {
+    left: 10px;
+  }
+  .pdp-arrow-right {
+    right: 10px;
+  }
+  .pdp-thumbnails {
+    display: flex;
+    gap: 10px;
+  }
+  .pdp-thumbnail {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    cursor: pointer;
+    border: 1px solid #ccc;
+  }
+  .pdp-thumbnail.active {
+    border: 2px solid #000;
+  }
+  .pdp-details {
+    flex: 1;
+  }
+  .pdp-title {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  .pdp-vendor {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 20px;
+  }
+  .pdp-price {
+    font-size: 20px;
+    margin-bottom: 20px;
+    color: red;
+  }
+  .pdp-current-price {
+    font-weight: bold;
+  }
+  .pdp-compare-price {
+    text-decoration: line-through;
+    color: #999;
+    margin-left: 10px;
+  }
+  .pdp-option {
+    margin-bottom: 20px;
+  }
+  .pdp-option-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .pdp-option-button {
+    background: #f0f0f0;
+    border: 1px solid #ccc;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 14px;
+  }
+  .pdp-option-button.selected {
+    background: #000;
+    color: #fff;
+  }
+  .pdp-quantity {
+    margin-bottom: 20px;
+  }
+  .pdp-quantity input {
+    width: 60px;
+    padding: 10px;
+    font-size: 16px;
+  }
+  .pdp-add-to-cart-button {
+    background: #000;
+    color: #fff;
+    border: none;
+    padding: 15px 30px;
+    font-size: 18px;
+    cursor: pointer;
+    width: 100%;
+  }
+  .pdp-message {
+    margin-top: 20px;
+    padding: 10px;
+    display: none;
+  }
+  .pdp-message.success {
+    background: #d4edda;
+    color: #155724;
+  }
+  .pdp-message.error {
+    background: #f8d7da;
+    color: #721c24;
+  }
+  .pdp-description {
+    margin-top: 40px;
+  }
+  button.pdp-add-to-cart-button:hover {
+      background: red;
+      font-size: 20px;
+  }
+  .pdp-description-container {
+      margin-top: 20px;
+    }
+    
+    .pdp-description-toggle {
+      width: 100%;
+      text-align: left;
+      background: none;
+      font-size: 18px;
+      font-weight: bold;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .pdp-description-toggle:hover {
+      text-decoration: underline;
+    }
+    
+    .toggle-icon {
+      font-size: 24px;
+      line-height: 1;
+    }
+    
+    .pdp-description {
+      border: 1px solid #ccc;
+      padding: 10px;
+      overflow: hidden;
+      transition: max-height 0.5s ease-in-out;
+    }
+    
+    .pdp-description.collapsed {
+      max-height: 0;
+      transition: max-height 0.3s ease-out;
+      border: none;
+    }
+    button#pdp-description-toggle {
+      padding: 10px;
+  }
+  body{
+      margin: 0;
+      padding: 0;
+  }
+  header {
+      background: #333;
+      color: #fff;
+      padding: 1rem;
+      text-align: center;
+  }
+  
+  header h1 {
+      margin: 0;
+  }
+  
+  nav ul {
+      list-style: none;
+      padding: 0;
+  }
+  
+  nav ul li {
+      display: inline;
+      margin: 0 1rem;
+  }
+  
+  nav ul li a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+  }
+  
+  nav ul li a:hover {
+      text-decoration: underline;
+  }
+  
+  main {
+      padding: 2rem;
+  }
+  footer {
+      background: #333;
+      color: #fff;
+      text-align: center;
+      padding: 1rem;
+  }
